@@ -1,51 +1,105 @@
-/**
- * Represents a book.
- * @constructor
- * @param {string} title - The title of the book.
- * @param {string} author - The author of the book.
- */
-function Book(title, author) {}
+// @ts-check
 
 /**
- * Both of these will link to the bar function.
- * @see {@link bar}
- * @see bar
+ * 아이디
+ * @type {string}
  */
-function foo() {}
-
-// Use the inline {@link} tag to include a link within a free-form description.
-/**
- * @see {@link foo} for further information.
- * @see {@link http://github.com|GitHub}
- */
-function bar() {}
+const userName = 'JunHo SON';
 
 /**
- * Generic dairy product.
- * @constructor
+ * 내용
+ * @type {string}
  */
-function DairyProduct() {}
+const contents = 'My Todo List';
 
 /**
- * Check whether the dairy product is solid at room temperature.
- * @abstract
- * @return {boolean}
+ * 완료여부
+ * @type {boolean}
  */
-DairyProduct.prototype.isSolid = function () {
-	throw new Error('must be implemented by subclass!');
+const isComplete = true;
+
+/**
+ * 카테고리
+ * @type {string}
+ */
+const category = '카테고리';
+
+/**
+ * 태그들
+ * @type {Array<string>}
+ */
+const tag = ['C', 'Python', 'Java'];
+
+/**
+ * @type {{id: number, text: string}}
+ */
+const todo = {
+	id: 1,
+	text: 'Hello'
+}
+
+/**
+ * 세금 계산
+ * @param {number} amount - 총 액
+ * @param {number} tax - 세금율
+ * @returns {string} - 총 달러
+ */
+const calculateTax = (amount, tax) => {
+	return `$${amount + tax * amount}`;
 };
 
 /**
- * Cool, refreshing milk.
- * @constructor
- * @augments DairyProduct
+ * 학생
+ * @typedef {Object} Student
+ * @property {number} id - 학번
+ * @property {string} name - 이름 
+ * @property {string|number} [age] - 나이
+ * @property {boolean} isActive - 재학여부
  */
-function Milk() {}
 
 /**
- * Check whether milk is solid at room temperature.
- * @return {boolean} Always returns false.
+ * @type {Student}
  */
-Milk.prototype.isSolid = function () {
-	return false;
-};
+const student = {
+	id: 1,
+	name: 'JunHo SON',
+	age: 20,
+	isActive: true
+}
+
+/**
+ * Class to create a person Object
+ */
+class Person {
+	/**
+	 * 
+	 * @param {Object} personInfo 사람에 관한 정보
+	 */
+	constructor(personInfo) {
+		/**
+		 * @property {string} name 이름
+		 */
+		this.name = personInfo.name;
+		/**
+		 * @property {string} age 나이
+		 */
+		this.age = personInfo.age;
+	}
+	
+	/**
+	 * @property {Function} greet 만나서 반갑다
+	 * @returns void
+	 */
+	greet() {
+		console.log('hello');
+	}
+}
+
+/**
+ * Person one
+ * See {@link Person}
+ */
+const person1 = new Person({
+	name: 'John Doe',
+	age: 30
+});
